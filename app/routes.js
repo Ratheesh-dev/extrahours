@@ -8,7 +8,9 @@ module.exports = function(app, passport) {
         failureFlash : true // allow flash messages
     }));
 
-
+app.get('/test', function(req, res) {
+        res.json({ success: true, message: 'success.' });
+    });
     // =====================================
     // SIGNUP ==============================
     // =====================================
