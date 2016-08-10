@@ -1,0 +1,146 @@
+<style type="text/css">
+  .form-group input.ng-invalid.ng-touched {
+    border-color: #FA787E;
+  }
+
+  .form-group input.ng-valid.ng-touched {
+    border-color: #78FA89;
+  }
+  .validerror{
+      color: #FA787E;
+  }
+</style>
+    
+    <!-- Content box-layout -->
+    <div class="container-fluid" id="container-body">
+    	<!-- Top Banner -->
+        <div class="topbox_banner">
+            <img src="content/images/utilities/Employer_banner.jpg" class="img-responsive" />
+        </div>
+        <!-- Top Banner End -->
+        
+        <!-- signup_content_sector -->
+		<div class="signup_content_sector container">
+        	<h4>SIGN UP AS EMPLOYER</h4>
+            
+            <section class="signup_main">
+                <form name="frmsignup" ng-submit="submitForm()" novalidate id="frmsignup" method="post" action="" enctype="multipart/form-data">
+            	<!-- form divide section 1 -->
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <div class="image-uploder">
+                            <img ng-src="{{imageemplrSrc}}" src="{{imageemplrSrc}}" class="img-circle uploder-thumbnil" alt="Click to uplode logo" title="Click to uplode Company logo" />
+                            <input ng-file-select="onFileSelect($files)" type="file" class="uploder_file" name="company_logo" title="Click to uplode logo" />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" ng-model="emplyr.empname" name="txtempname" class="input-control form-control" placeholder="Employee Name" required="" />
+                        <div ng-show="frmsignup.txtempname.$touched">
+                            <span ng-show="frmsignup.txtempname.$error.required" class="validerror">Employee Name is required !</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" ng-model="emplyr.adrs1" name="txtadrs1" class="input-control form-control" placeholder="Address 1" required="" />
+                        <div ng-show="frmsignup.txtadrs1.$touched">
+                            <span ng-show="frmsignup.txtadrs1.$error.required" class="validerror">Address 1 is required !</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="emplyr.adrs2" name="txtadrs2" class="input-control form-control" placeholder="Address 2" required="" />
+                        <div ng-show="frmsignup.txtadrs2.$touched">
+                            <span ng-show="frmsignup.txtadrs2.$error.required" class="validerror">Address 2 is required !</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" ng-model="emplyr.mail" name="txtemail" class="input-control form-control" placeholder="Email" required="" />
+                        <div ng-show="frmsignup.txtemail.$touched">
+                            <span ng-show="frmsignup.txtemail.$error.required" class="validerror">Email is required !</span>
+                            <span ng-show="frmsignup.txtemail.$error.email" class="validerror">This is not a valid email !</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- form divide section 1 End -->
+                
+                <!-- form divide section 2 -->
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                	<div class="form-group">
+                            <input type="text" ng-model="emplyr.city" name="txtcity" class="input-control form-control" placeholder="City" required="" />
+                            <div ng-show="frmsignup.txtcity.$touched">
+                            <span ng-show="frmsignup.txtcity.$error.required" class="validerror"> City is required !</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" ng-model="emplyr.state" name="txtstate" class="input-control form-control" placeholder="State" required="" />
+                        <div ng-show="frmsignup.txtstate.$touched">
+                            <span ng-show="frmsignup.txtstate.$error.required" class="validerror">State is required !</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" ng-model="emplyr.zip" name="txtzip" class="input-control form-control" placeholder="Zip Code" required="" />
+                        <div ng-show="frmsignup.txtzip.$touched">
+                            <span ng-show="frmsignup.txtzip.$error.required" class="validerror">Zip Code is required !</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" ng-model="emplyr.pcontact" name="txtcontno" class="input-control form-control" placeholder="Primary Contact" required="" />
+                        <div ng-show="frmsignup.txtcontno.$touched">
+                            <span ng-show="frmsignup.txtcontno.$error.required" class="validerror">Contact Number is required !</span>
+                            <span ng-show="frmsignup.txtcontno.$error.number" class="validerror">Contact Number is required !</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="emplyr.phone" name="txtname" class="input-control form-control" placeholder="Phone Number" required="" />
+                        <div ng-show="frmsignup.txtname.$touched">
+                            <span ng-show="frmsignup.txtname.$error.required" class="validerror">Phone Number is required !</span>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                    	<div class="col-xs-12 col-sm-6 form-group">
+                            <input type="password" ng-model="emplyr.pass1" stopccp name="txtpass" class="input-control form-control" placeholder="Password" required="" />
+                            <div ng-show="frmsignup.txtpass.$touched">
+                            <span ng-show="frmsignup.txtpass.$error.required" class="validerror">Password is required !</span>
+                        </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 form-group">
+                            <input type="password" ng-model="emplyr.pass2" data-password-verify="emplyr.pass1" ng-cut="$event.preventDefault()" ng-copy="$event.preventDefault()" ng-paste="$event.preventDefault()" name="txtcpass" class="input-control form-control" placeholder="Confirm Password" required="" />
+                            <div ng-show="frmsignup.txtcpass.$touched">
+                            <span ng-show="frmsignup.txtcpass.$error.required" class="validerror">Confirm Password is required !</span>
+                            <span ng-show="frmsignup.txtcpass.$error.passwordVerify" class="validerror">Confirm Password not matching !</span>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                    <div>
+                        <input id="checkbox1" ng-model="terms" type="checkbox" name="checkbox" value="1" required="" >
+                            <label for="checkbox1" class="CR-label"><span></span>I accept <a href="#/" class="theme-link">Terms and Conditions</a></label>
+                    </div> 
+                    </div>
+                    
+                </div>
+                <!-- form divide section 2 End -->
+                
+                <!-- Button Section -->
+	<div class="form-group text-center col-md-12">
+                	<button type="submit" ng-disabled="frmsignup.$invalid" class="btn btn-yellow btn-control">SIGN UP</button>
+                </div>
+                <!-- Button Section End -->
+                </form>
+            </section>
+            
+        </div>        
+        <!-- signup_content_sector End -->
+        
+    </div>
+     <!-- Content box-layout End -->
+     <script>
+        $('#myLoginmodel').modal('hide');
+        $('#cotinueAlert').modal('hide');
+     </script>
