@@ -1,7 +1,7 @@
 // app/routes.js
 
 
-module.exports = function (app, passport, util, http) {
+module.exports = function (app, passport, util, http, jwt) {
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
@@ -15,54 +15,78 @@ module.exports = function (app, passport, util, http) {
     // SIGNUP ==============================
     // =====================================
     // show the signup form
-// app.get('/api/signup',
-//            passport.authenticate('local-signup'),
-//            function (req, res) {
-//                //res.writeHead(200, { "Content-Type": "text/plain" });
-//                //res.end(util.inspect(req.user));
-//                res.json({
-//                    success: true,
-//                    message: 'success',
-//                   name:req.user.local.email
-//                });
-//            });
 
-app.get('/api/employer/signup', function(req, res, next) {
+app.post('/api/employer/signup', function(req, res, next) {
+    
   passport.authenticate('employer-signup', function(err, employer, info) {
-      //res.writeHead(200, { "Content-Type": "text/plain" });
-      //res.end(util.inspect(req));
+      
     if (err) { 
         //return next(err); 
         res.json({
-            success: false,
+            status: false,
             message: 'failed1'
            
         });
     }
     if (employer) { 
         //return res.redirect('/login');
+       var token = jwt.sign(employer, 'ilovescotchscotchyscotchscotch');
        res.json({
-            success: true,
-            message: 'success'
-            //employerName: req.user.local.employerName
+            status: true,
+            message: 'success',
+            employerName: employer.local.employerName,
+            token: token
         });
     }else{
         res.json({
-            success: false,
-            message: 'failed2'
-            //employerName: req.user.local.employerName
+            status: false,
+            message: 'Email already taken',
         });
     }
   })(req, res, next);
 });
 
- app.get('/test', function (req, res) {
-         res.json({
-            success: true,
-            message: 'success'
-          
-        });
+
+
+app.use(function(req, res, next) {
+ //res.writeHead(200, { "Content-Type": "text/plain" });
+//                res.end(util.inspect(req));
+  // check header or url parameters or post parameters for token
+  var token = req.body.token || req.query.token || req.headers['x-access-token'];  // req.body.token
+
+  // decode token
+  if (token) {
+
+    // verifies secret and checks exp
+    jwt.verify(token, 'ilovescotchscotchyscotchscotch', function(err, decoded) {      
+      if (err) {
+        return res.json({ success: false, message: 'Failed to authenticate token.' });    
+      } else {
+        // if everything is good, save to request for use in other routes
+        req.decoded = decoded;    
+        next();
+      }
     });
+
+  } else {
+
+    // if there is no token
+    // return an error
+    return res.status(403).send({ 
+        success: false, 
+        message: 'No token provided.' 
+    });
+    
+  }
+});
+
+app.post('/api/test', function (req, res) {
+              res.json({
+                    status: false,
+                    message: 'taken check'
+                });
+               
+       });
 //    app.get('/api/employer/signup',
 //            passport.authenticate('employer-signup'),
 //            function (req, res) {
@@ -113,19 +137,14 @@ app.get('/api/employer/signup', function(req, res, next) {
     // =====================================
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
-    app.get('/profile', isLoggedIn, function (req, res) {
-        res.render('profile.ejs', {
-            user: req.user // get the user out of session and pass to template
-        });
-    });
-
+  
     // =====================================
     // LOGOUT ==============================
     // =====================================
-    app.get('/logout', function (req, res) {
-        req.logout();
-        res.redirect('/');
-    });
+//    app.get('/logout', function (req, res) {
+//        req.logout();
+//        res.redirect('/');
+//    });
 };
 
 // route middleware to make sure a user is logged in

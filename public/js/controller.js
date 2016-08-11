@@ -22,11 +22,17 @@ app.controller('jobseeker1Controller', function ($scope, fileReader) {
             };
             
             $scope.submitSigninForm = function(){ 
-                var formData = new FormData($('#frmsignup')); 
+                //var formData = new FormData($('#frmsignup')); 
+				var formData = $('#frmsignup').serialize();
+				alert(JSON.stringify(formData));
                 $http({
-                  method: 'GET',
+                  method: 'POST',
                   url: '/api/employer/signup',
-                  data: formData
+                  data: formData,
+				   headers: {
+					  'Content-Type': 'application/x-www-form-urlencoded',
+					  //'Content-Length': Buffer.byteLength(post_data)
+				  }
                 }).then(function successCallback(response) { 
                     console.log(response);
                     alert(JSON.stringify(response)); 

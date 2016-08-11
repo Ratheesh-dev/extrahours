@@ -60,16 +60,16 @@ module.exports = function (passport) {
                             // set the Employer's local credentials
                             newEmployer.local.email = email;
                             newEmployer.local.password = newEmployer.generateHash(password);
-                            newEmployer.local.employerName = req.query.employerName;
-                            newEmployer.local.companyName = req.query.companyName;
-                            newEmployer.local.industryCode = req.query.industryCode;
-                            newEmployer.local.address1 = req.query.address1;
-                            newEmployer.local.address2 = req.query.address2;
-                            newEmployer.local.city = req.query.city;
-                            newEmployer.local.state = req.query.state;
-                            newEmployer.local.zipCode = req.query.zipCode;
-                            newEmployer.local.primaryContact = req.query.primaryContact;
-                            newEmployer.local.phoneNumber = req.query.phoneNumber;
+                            newEmployer.local.employerName = req.body.employerName;
+                            newEmployer.local.companyName = req.body.companyName;
+                            newEmployer.local.industryCode = req.body.industryCode;
+                            newEmployer.local.address1 = req.body.address1;
+                            newEmployer.local.address2 = req.body.address2;
+                            newEmployer.local.city = req.body.city;
+                            newEmployer.local.state = req.body.state;
+                            newEmployer.local.zipCode = req.body.zipCode;
+                            newEmployer.local.primaryContact = req.body.primaryContact;
+                            newEmployer.local.phoneNumber = req.body.phoneNumber;
 
 
                             // save the Employer
