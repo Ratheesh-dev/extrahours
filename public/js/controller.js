@@ -28,8 +28,8 @@ app.controller('jobseeker1Controller', function ($scope, fileReader) {
                   url: '/api/employer/signup',
                   data: formData
                 }).then(function successCallback(response) { 
-//                    console.log(response);
-//                    alert(JSON.stringify(response)); 
+                    console.log(response);
+                    alert(JSON.stringify(response)); 
                 }, function errorCallback(error) { 
                     console.log(error);
                     alert(JSON.stringify(error));
