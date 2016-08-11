@@ -39,17 +39,17 @@ app.get('/api/employer/signup', function(req, res, next) {
            
         });
     }
-    if (!employer) { 
+    if (employer) { 
         //return res.redirect('/login');
-        res.json({
-            success: false,
-            message: 'failed2'
-            
+       res.json({
+            success: true,
+            message: 'success'
+            //employerName: req.user.local.employerName
         });
     }else{
         res.json({
-            success: true,
-            message: 'success'
+            success: false,
+            message: 'failed2'
             //employerName: req.user.local.employerName
         });
     }
