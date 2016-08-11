@@ -22,7 +22,8 @@ app.controller('jobseeker1Controller', function ($scope, fileReader) {
             };
             
             $scope.submitSigninForm = function(){ 
-                var formData = new FormData($('#frmsignup')); //alert(JSON.stringify(formData));
+                var formData = new FormData($('#frmsignup')); 
+                //alert(JSON.stringify(formData));
                 $http({
                   method: 'GET',
                   url: '/api/employer/signup',
@@ -37,6 +38,21 @@ app.controller('jobseeker1Controller', function ($scope, fileReader) {
             };
             
         }); 
+        
+//        $.ajax({
+//                url: url1,
+//                type: 'POST',
+//                data: data,
+//                processData: false,
+//                contentType: false,
+//                cache: false,
+//                dataType: "html",
+//                async: false,
+//                mimeType: 'multipart/form-data',
+//                success:function(res){
+//                    
+//                }
+//            });
         
         app.controller('indipendController', function ($scope, fileReader) { 
              console.log(fileReader)
