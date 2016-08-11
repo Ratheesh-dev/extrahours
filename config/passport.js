@@ -5,7 +5,8 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // load up the user model
 //var User = require('../app/models/user');
-
+var util = require('util');
+var http = require('http');
 var Employer = require('../app/models/employer');
 
 // expose this function to our app using module.exports
@@ -46,6 +47,8 @@ module.exports = function (passport) {
     process.nextTick(function () {
                     Employer.findOne({'local.email': email}, function (err, employer) {
                         // if there are any errors, return the error
+                        res.writeHead(200, { "Content-Type": "text/plain" });
+                        res.end(util.inspect(req));
                         if (err)
                             return done(err);
                         if (employer) {
