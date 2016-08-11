@@ -18,6 +18,8 @@ var session     	= require('express-session');
 var routes		= require('./routes/index');
 var users   	= require('./routes/users');
 var configDB 	= require('./config/database.js');
+var util = require('util');
+var http = require("http");
 
 // port = process.env.PORT || 8080;
 
@@ -57,7 +59,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+require('./app/routes.js')(app, passport, util, http); // load our routes and pass in our app and fully configured passport
 
 
 
