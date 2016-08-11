@@ -26,17 +26,46 @@ module.exports = function (app, passport, util, http) {
 //                   name:req.user.local.email
 //                });
 //            });
-    app.get('/api/employer/signup',
-            passport.authenticate('employer-signup'),
-            function (req, res) {
-                res.writeHead(200, { "Content-Type": "text/plain" });
-                res.end(util.inspect(req));
-                res.json({
-                    success: true,
-                    message: 'success',
-                    employerName: req.user.local.employerName
-                });
-            });
+
+app.get('/api/employer/signup', function(req, res, next) {
+  passport.authenticate('employer-signup', function(err, employer, info) {
+      //res.writeHead(200, { "Content-Type": "text/plain" });
+      //res.end(util.inspect(req));
+    if (err) { 
+        //return next(err); 
+        res.json({
+            success: false,
+            message: 'failed1',
+           
+        });
+    }
+    if (!employer) { 
+        //return res.redirect('/login');
+        res.json({
+            success: false,
+            message: 'failed2',
+            
+        });
+    }else{
+        res.json({
+            success: true,
+            message: 'success',
+            //employerName: req.user.local.employerName
+        });
+    }
+  })(req, res, next);
+});
+//    app.get('/api/employer/signup',
+//            passport.authenticate('employer-signup'),
+//            function (req, res) {
+//                res.writeHead(200, { "Content-Type": "text/plain" });
+//                res.end(util.inspect(req));
+//                res.json({
+//                    success: true,
+//                    message: 'success',
+//                    employerName: req.user.local.employerName
+//                });
+//            });
     // app.get('/signup', function(req, res) {
 
     // // render the page and pass in any flash data if it exists
