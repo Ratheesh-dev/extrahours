@@ -30,41 +30,41 @@
                     <div class="form-group">
                         <div class="image-uploder">
                             <img ng-src="{{imageemplrSrc}}" src="{{imageemplrSrc}}" class="img-circle uploder-thumbnil" alt="Click to uplode logo" title="Click to uplode Company logo" />
-                            <input ng-file-select="onFileSelect($files)" type="file" class="uploder_file" name="company_logo" title="Click to uplode logo" />
+                            <input ng-file-select="onFileSelect($files)" type="file" class="uploder_file" name="companyLogo" title="Click to uplode logo" />
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.cname" name="txtcname" class="input-control form-control" placeholder="Company Name" required="" />
-                        <div ng-show="frmsignup.txtcname.$touched">
-                            <span ng-show="frmsignup.txtcname.$error.required" class="validerror">Company Name is required !</span>
+                        <input type="text" ng-model="emplyr.cname" name="companyName" class="input-control form-control" placeholder="Company Name" required="" />
+                        <div ng-show="frmsignup.companyName.$touched">
+                            <span ng-show="frmsignup.companyName.$error.required" class="validerror">Company Name is required !</span>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.empname" name="txtempname" class="input-control form-control" placeholder="Employer Name" required="" />
-                        <div ng-show="frmsignup.txtempname.$touched">
-                            <span ng-show="frmsignup.txtempname.$error.required" class="validerror">Employer Name is required !</span>
+                        <input type="text" ng-model="emplyr.empname" name="employerName" class="input-control form-control" placeholder="Employer Name" required="" />
+                        <div ng-show="frmsignup.employerName.$touched">
+                            <span ng-show="frmsignup.employerName.$error.required" class="validerror">Employer Name is required !</span>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.indscode" name="txtindycode" class="input-control form-control" placeholder="Industry Code" required="" />
-                        <div ng-show="frmsignup.txtindycode.$touched">
-                            <span ng-show="frmsignup.txtindycode.$error.required" class="validerror">Industry Code is required !</span>
+                        <input type="text" ng-model="emplyr.indscode" name="industryCode" class="input-control form-control" placeholder="Industry Code" required="" />
+                        <div ng-show="frmsignup.industryCode.$touched">
+                            <span ng-show="frmsignup.industryCode.$error.required" class="validerror">Industry Code is required !</span>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.adrs1" name="txtadrs1" class="input-control form-control" placeholder="Address 1" required="" />
-                        <div ng-show="frmsignup.txtadrs1.$touched">
-                            <span ng-show="frmsignup.txtadrs1.$error.required" class="validerror">Address 1 is required !</span>
+                        <input type="text" ng-model="emplyr.adrs1" name="address1" class="input-control form-control" placeholder="Address 1" required="" />
+                        <div ng-show="frmsignup.address1.$touched">
+                            <span ng-show="frmsignup.address1.$error.required" class="validerror">Address 1 is required !</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.adrs2" name="txtadrs2" class="input-control form-control" placeholder="Address 2" required="" />
-                        <div ng-show="frmsignup.txtadrs2.$touched">
-                            <span ng-show="frmsignup.txtadrs2.$error.required" class="validerror">Address 2 is required !</span>
+                        <input type="text" ng-model="emplyr.adrs2" name="address2" class="input-control form-control" placeholder="Address 2" required="" />
+                        <div ng-show="frmsignup.address2.$touched">
+                            <span ng-show="frmsignup.address2.$error.required" class="validerror">Address 2 is required !</span>
                         </div>
                     </div>
                     
@@ -74,51 +74,51 @@
                 <!-- form divide section 2 -->
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 	<div class="form-group">
-                            <input type="text" ng-model="emplyr.city" name="txtcity" class="input-control form-control" placeholder="City" required="" />
-                            <div ng-show="frmsignup.txtcity.$touched">
-                            <span ng-show="frmsignup.txtcity.$error.required" class="validerror"> City is required !</span>
+                            <input type="text" ng-model="emplyr.city" name="city" class="input-control form-control" placeholder="City" required="" />
+                            <div ng-show="frmsignup.city.$touched">
+                            <span ng-show="frmsignup.city.$error.required" class="validerror"> City is required !</span>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.state" name="txtstate" class="input-control form-control" placeholder="State" required="" />
-                        <div ng-show="frmsignup.txtstate.$touched">
-                            <span ng-show="frmsignup.txtstate.$error.required" class="validerror">State is required !</span>
+                        <input type="text" ng-model="emplyr.state" name="state" class="input-control form-control" placeholder="State" required="" />
+                        <div ng-show="frmsignup.state.$touched">
+                            <span ng-show="frmsignup.state.$error.required" class="validerror">State is required !</span>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.zip" name="txtzip" class="input-control form-control" placeholder="Zip Code" required="" />
-                        <div ng-show="frmsignup.txtzip.$touched">
-                            <span ng-show="frmsignup.txtzip.$error.required" class="validerror">Zip Code is required !</span>
+                        <input type="text" ng-model="emplyr.zip" name="zipCode" class="input-control form-control" placeholder="Zip Code" required="" />
+                        <div ng-show="frmsignup.zipCode.$touched">
+                            <span ng-show="frmsignup.zipCode.$error.required" class="validerror">Zip Code is required !</span>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.pcontact" name="txtcontno" class="input-control form-control" placeholder="Primary Contact" required="" />
-                        <div ng-show="frmsignup.txtcontno.$touched">
-                            <span ng-show="frmsignup.txtcontno.$error.required" class="validerror">Contact Number is required !</span>
-                            <span ng-show="frmsignup.txtcontno.$error.number" class="validerror">Contact Number is required !</span>
+                        <input type="text" ng-model="emplyr.pcontact" name="primaryContact" class="input-control form-control" placeholder="Primary Contact" required="" />
+                        <div ng-show="frmsignup.primaryContact.$touched">
+                            <span ng-show="frmsignup.primaryContact.$error.required" class="validerror">Contact Number is required !</span>
+                            <span ng-show="frmsignup.primaryContact.$error.number" class="validerror">Contact Number is required !</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="emplyr.phone" name="txtname" class="input-control form-control" placeholder="Phone Number" required="" />
-                        <div ng-show="frmsignup.txtname.$touched">
-                            <span ng-show="frmsignup.txtname.$error.required" class="validerror">Phone Number is required !</span>
+                        <input type="text" ng-model="emplyr.phone" name="phoneNumber" class="input-control form-control" placeholder="Phone Number" required="" />
+                        <div ng-show="frmsignup.phoneNumber.$touched">
+                            <span ng-show="frmsignup.phoneNumber.$error.required" class="validerror">Phone Number is required !</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" ng-model="emplyr.mail" name="txtemail" class="input-control form-control" placeholder="Email" required="" />
-                        <div ng-show="frmsignup.txtemail.$touched">
-                            <span ng-show="frmsignup.txtemail.$error.required" class="validerror">Email is required !</span>
-                            <span ng-show="frmsignup.txtemail.$error.email" class="validerror">This is not a valid email !</span>
+                        <input type="email" ng-model="emplyr.mail" name="email" class="input-control form-control" placeholder="Email" required="" />
+                        <div ng-show="frmsignup.email.$touched">
+                            <span ng-show="frmsignup.email.$error.required" class="validerror">Email is required !</span>
+                            <span ng-show="frmsignup.email.$error.email" class="validerror">This is not a valid email !</span>
                         </div>
                     </div>
                     <div class="row">
                     	<div class="col-xs-12 col-sm-6 form-group">
-                            <input type="password" ng-model="emplyr.pass1" stopccp name="txtpass" class="input-control form-control" placeholder="Password" required="" />
-                            <div ng-show="frmsignup.txtpass.$touched">
-                            <span ng-show="frmsignup.txtpass.$error.required" class="validerror">Password is required !</span>
+                            <input type="password" ng-model="emplyr.pass1" stopccp name="password" class="input-control form-control" placeholder="Password" required="" />
+                            <div ng-show="frmsignup.password.$touched">
+                            <span ng-show="frmsignup.password.$error.required" class="validerror">Password is required !</span>
                         </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 form-group">
