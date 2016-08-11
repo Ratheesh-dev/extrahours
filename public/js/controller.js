@@ -24,10 +24,11 @@ app.controller('jobseeker1Controller', function ($scope, fileReader) {
             $scope.submitSigninForm = function(){ 
                 var formData = new FormData($('#frmsignup')); //alert(JSON.stringify(formData));
                 $http({
-                  method: 'POST',
+                  method: 'GET',
                   url: '/api/employer/signup',
                   data: formData
-                }).then(function successCallback(response) { alert(response);
+                }).then(function successCallback(response) { 
+                    alert((JSON.stringify(response));
                     
                 }, function errorCallback(response) { alert(response);
 
