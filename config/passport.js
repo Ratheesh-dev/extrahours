@@ -47,14 +47,13 @@ module.exports = function (passport) {
     process.nextTick(function () {
                     Employer.findOne({'local.email': email}, function (err, employer) {
                         // if there are any errors, return the error
-                        res.writeHead(200, { "Content-Type": "text/plain" });
-                        res.end(util.inspect(req));
+                       
                         if (err)
                             return done(err);
                         if (employer) {
                             return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                         } else {
-
+                            //req.params = {acc_status:1};
                             // if there is no Employer with that email
                             // create the Employer
                             var newEmployer = new Employer();
