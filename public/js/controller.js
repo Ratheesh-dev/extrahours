@@ -10,8 +10,8 @@ app.controller('jobseeker1Controller', function ($scope, fileReader) {
             };
         });
         
-        app.controller('signinController', function ($scope, fileReader) { 
-             console.log(fileReader)
+        app.controller('signinController', function ($scope, fileReader, $http) { 
+             console.log(fileReader);
             $scope.imageemplrSrc = "content/images/utilities/dummy_holder_01.png";
             $scope.getFile = function () {
                 $scope.progress = 0;
@@ -20,6 +20,20 @@ app.controller('jobseeker1Controller', function ($scope, fileReader) {
                                   $scope.imageemplrSrc = result;
                               });
             };
+            
+            $scope.submitSigninForm = function(){ 
+                var formData = new FormData($('#frmsignup')); //alert(JSON.stringify(formData));
+                $http({
+                  method: 'POST',
+                  url: '/api/employer/signup',
+                  data: formData
+                }).then(function successCallback(response) { alert(response);
+                    
+                }, function errorCallback(response) { alert(response);
+
+                });
+            };
+            
         }); 
         
         app.controller('indipendController', function ($scope, fileReader) { 
