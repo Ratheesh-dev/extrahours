@@ -4,7 +4,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 
 // load up the user model
-var User = require('../app/models/user');
+//var User = require('../app/models/user');
 
 var Employer = require('../app/models/employer');
 
@@ -18,14 +18,14 @@ module.exports = function (passport) {
     // passport needs ability to serialize and unserialize users out of session
 
     // used to serialize the user for the session
-    passport.serializeUser(function (user, done) {
-        done(null, user.id);
+    passport.serializeUser(function (employer, done) {
+        done(null, employer.id);
     });
 
     // used to deserialize the user
     passport.deserializeUser(function (id, done) {
-        User.findById(id, function (err, user) {
-            done(err, user);
+        Employer.findById(id, function (err, employer) {
+            done(err, employer);
         });
     });
 

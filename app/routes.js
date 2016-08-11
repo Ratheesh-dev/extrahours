@@ -27,13 +27,11 @@ module.exports = function (app, passport, util, http) {
     app.get('/api/employer/signup',
             passport.authenticate('employer-signup'),
             function (req, res) {
-                 res.writeHead(200, { "Content-Type": "text/plain" });
-                 res.end(util.inspect(req));
-
+               
                 res.json({
                     success: true,
                     message: 'success',
-                    employerName: req.employer.local.employerName
+                    employerName: req.user.local.employerName
                 });
             });
     // app.get('/signup', function(req, res) {
