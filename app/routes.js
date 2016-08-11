@@ -35,7 +35,7 @@ app.get('/api/employer/signup', function(req, res, next) {
         //return next(err); 
         res.json({
             success: false,
-            message: 'failed1',
+            message: 'failed1'
            
         });
     }
@@ -43,18 +43,26 @@ app.get('/api/employer/signup', function(req, res, next) {
         //return res.redirect('/login');
         res.json({
             success: false,
-            message: 'failed2',
+            message: 'failed2'
             
         });
     }else{
         res.json({
             success: true,
-            message: 'success',
+            message: 'success'
             //employerName: req.user.local.employerName
         });
     }
   })(req, res, next);
 });
+
+ app.get('/test', function (req, res) {
+         res.json({
+            success: true,
+            message: 'success'
+          
+        });
+    });
 //    app.get('/api/employer/signup',
 //            passport.authenticate('employer-signup'),
 //            function (req, res) {
